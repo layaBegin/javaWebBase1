@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式</title>
+    <style>
+        span {
+            color: red;
+        }
+        .main{
+            border-collapse: collapse;
+            /*居中的方式*/
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hr_1{
+            font-size: 14px ;
+            font-weight: bold;
+            color: blue;
+            height: 40px;
+            border-bottom-width: 2px;
+            border-bottom-style: solid;
+            border-bottom-color: #3275c3;
+            vertical-align: bottom;
+            padding-left: 14px;
+
+        }
+        body{
+            margin:0;
+            padding: 0;
+            font-size: 12px;
+            line-height: 20px;
+        }
+        .left{
+            width: 100px;
+            text-align: right;
+        }
+        .center{
+            width: 300px;
+
+        }
+    </style>
+</head>
+<body>
+<hr/>
+<form action="server_url" method="post" onsubmit="onTijiao()">
+<table class="main">
+    <tr>
+        <td><img id="logo" src="img/logo.jpg"><img id="banner" src="img/banner.jpg"></td>
+    </tr>
+    <tr>
+        <td class="hr_1">用户注册</td>
+    </tr>
+    <tr>
+        <td style="height: 10px"></td>
+    </tr>
+    <tr >
+        <table align="center" cellpadding="0" cellspacing="10">
+            <tr>
+                <td class="left">用户名：</td>
+                <td class="center"><input type="text" id="username" placeholder="请输入用户名" onblur="checkUser()"><span id="userImg"></span></td>
+            </tr>
+            <tr>
+                <td class="left">密码：</td>
+                <td class="center"><input type="text" id="password" placeholder="请输入密码"></td>
+            </tr>
+            <tr>
+                <td class="left">确认密码：</td>
+                <td class="center"><input type="text" id="password1" placeholder="请再次输入密码"></td>
+            </tr>
+            <tr>
+                <td class="left">电子邮箱：</td>
+                <td class="center"><input type="text" id="email" placeholder="请输入邮箱"></td>
+            </tr>
+            <tr>
+                <td class="left">手机号：</td>
+                <td class="center"><input type="text" id="phone" placeholder="请输入手机号"></td>
+            </tr>
+            <tr>
+                <td class="left">生日：</td>
+                <td class="center"><input type="date" id="birthday" placeholder="请输入生日"></td>
+            </tr>
+
+            <tr>
+                <td class="left">&nbsp;</td>
+                <td align="center" class="center">
+                    <input type="image" src="img/register.jpg" >
+                </td>
+            </tr>
+        </table>
+    </tr>
+
+</table>
+
+</form>
+</body>
+<script>
+    let reg = /^\d{3}$/
+    console.log("reg:"+ reg.test("234"))
+    checkAll = function () {
+        console.log("==进入注册")
+        return this._checkUsername() && this._checkPassword() &&
+            this._checkPassword1() && this._checkEmail && this._checkPhone() &&
+                this._checkEmail() && this._checkBirthday()
+    }
+
+    onTijiao = function(){
+        console.log("===进入提交按钮")
+    }
+
+    checkUser = function(){
+        let bUser = this._checkUsername()
+        if (bUser){
+            document.getElementById("userImg").innerHTML = `<img src="img/gou.png" height="20">`
+        }
+    }
+
+
+    _checkUsername = function () {
+        let regUsername = /^[a-zA-Z][a-zA-Z0-9]{4,16}$/
+        let username = document.getElementById("username").value
+        if (regUsername.test(username)){
+            return true
+        }else {
+            alert("请输入4-16位字符，并以字母开头")
+            return  false
+        }
+        return false
+
+    }
+    _checkPassword = function () {
+        let regPassword = /[a-zA-Z0-9]{6,20}/
+        let password = document.getElementById("password").value
+
+        if (regPassword.test(password)){
+            return true
+        }else {
+            alert("请输入大小写字母和数字6-20个字符")
+            return false
+        }
+        return false
+
+    }
+    _checkPassword1 = function () {
+        let password = document.getElementById("password").value
+        let password1 = document.getElementById("password1").value
+        if (password !== password1){
+            alert("两次密码不一致")
+            return false
+        }else {
+            return true
+        }
+    }
+
+    _checkEmail = function () {
+        let email = document.getElementById("email").value
+        let regExp = /^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/
+        if (regExp.test(email)){
+            return true
+        }else{
+            alert("邮箱格式错误")
+
+            return false
+        }
+    }
+
+    _checkPhone = function () {
+        let phone = document.getElementById("phone").value
+        let regExp = /^1[35789]\d{9}$/
+        if (regExp.test(phone)){
+            return true
+        }else {
+            alert("请输入正确的手机号")
+            return false
+        }
+    }
+
+    _checkBirthday = function () {
+        let regExp = /^((19\d{2})|(200\d))-(0?[1-9]|1[0-2])-(0?[1-9]|[1-2]\d|3[0-1])$/
+        let birthday = document.getElementById("birthday")
+        if (regExp.test(birthday)){
+            return true
+        }else {
+            alert("生日错误")
+            return  false
+        }
+    }
+
+
+</script>
+</html>
