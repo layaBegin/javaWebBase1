@@ -29,7 +29,7 @@ import java.sql.Timestamp;
  */
 //@WebServlet({"/demo2","/demo200"})
 //@WebServlet(urlPatterns = {"/demo2","/demo200","/demo2000"})
-@WebServlet("/")
+@WebServlet("/demo2")
 public class HttpServletDemo2  extends HttpServlet {
 
     /**

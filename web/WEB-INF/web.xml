@@ -11,4 +11,27 @@
         <servlet-name>demo1</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>-->
+
+   <!--<servlet>
+      <servlet-name>demo4</servlet-name>
+      <servlet-class>com.jw.servlet.HttpServletDemo4</servlet-class>
+      <init-param>
+         <param-name>name</param-name>
+         <param-value>zhangshan</param-value>
+      </init-param>
+      <init-param>
+         <param-name>age</param-name>
+         <param-value>18</param-value>
+      </init-param>
+&lt;!&ndash;      <load-on-startup>1</load-on-startup>&ndash;&gt;
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>demo4</servlet-name>
+      <url-pattern>/</url-pattern>
+   </servlet-mapping>-->
+
+<!-- 修改默认打开页(Tomcat 默认打开index.html 或者index.jsp);-->
+   <welcome-file-list>
+      <welcome-file>testWelcom.html</welcome-file>
+   </welcome-file-list>
 </web-app>
