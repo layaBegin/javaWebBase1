@@ -24,6 +24,7 @@ public class TestRequestAera extends HttpServlet {
        /* response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
         out.print("===请求域中用户数据：" + username);*/
+
        //转发
         /*
         1. 地址栏不会发生变化，显示的还是上一个Servlet的地址

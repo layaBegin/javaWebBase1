@@ -32,10 +32,11 @@ public class Login extends HttpServlet {
         resp.setContentType("text/html; charset=UTF-8");
         PrintWriter writer = resp.getWriter();
         if (user !=null){
-            writer.println("登录成功");
+            req.setAttribute("user",user);
+            req.getRequestDispatcher("two").forward(req,resp);
         }else {
             writer.println("登录失败 ");
-
+            resp.sendRedirect("testWelcom.html");
         }
     }
 

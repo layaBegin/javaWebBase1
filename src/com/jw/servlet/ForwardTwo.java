@@ -1,5 +1,7 @@
 package com.jw.servlet;
 
+import com.jw.entity.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,10 +16,12 @@ public class ForwardTwo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
-        String username = (String)req.getAttribute("username");
+        //String username = (String)req.getAttribute("username");
         resp.setContentType("text/html; charset=UTF-8");
         PrintWriter writer = resp.getWriter();
-        writer.println("username:"+username);
+
+        User user = (User)req.getAttribute("user");
+        writer.println("user:"+user);
     }
 
     @Override

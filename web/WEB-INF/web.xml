@@ -34,4 +34,32 @@
    <welcome-file-list>
       <welcome-file>login.html</welcome-file>
    </welcome-file-list>
+
+
+
+<!-- ServletContext 获取全局参数-->
+
+   <context-param>
+      <param-name>user</param-name>
+      <param-value>全局牛魔王</param-value>
+   </context-param>
+   <context-param>
+      <param-name>child</param-name>
+      <param-value>红孩儿</param-value>
+   </context-param>
+   
+   <servlet>
+      <servlet-name>hehe</servlet-name>
+      <servlet-class>com.jw.servlet.TestServletContext</servlet-class>
+      <init-param>
+         <param-name>user</param-name>
+         <param-value>局部牛魔王</param-value>
+      </init-param>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>hehe</servlet-name>
+      <url-pattern>/demo12</url-pattern>
+   </servlet-mapping>
+
+
 </web-app>
