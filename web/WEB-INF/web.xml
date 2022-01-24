@@ -32,6 +32,6 @@
 
 <!-- 修改默认打开页(Tomcat 默认打开index.html 或者index.jsp);-->
    <welcome-file-list>
-      <welcome-file>testWelcom.html</welcome-file>
+      <welcome-file>login.html</welcome-file>
    </welcome-file-list>
 </web-app>
