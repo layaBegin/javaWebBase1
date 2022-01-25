@@ -32,14 +32,14 @@
 
 <!-- 修改默认打开页(Tomcat 默认打开index.html 或者index.jsp);-->
    <welcome-file-list>
-      <welcome-file>login.html</welcome-file>
+      <welcome-file>download.html</welcome-file>
    </welcome-file-list>
 
 
 
 <!-- ServletContext 获取全局参数-->
 
-   <context-param>
+<!--   <context-param>
       <param-name>user</param-name>
       <param-value>全局牛魔王</param-value>
    </context-param>
@@ -59,7 +59,7 @@
    <servlet-mapping>
       <servlet-name>hehe</servlet-name>
       <url-pattern>/demo12</url-pattern>
-   </servlet-mapping>
+   </servlet-mapping>-->
 
 
 </web-app>

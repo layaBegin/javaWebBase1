@@ -18,12 +18,12 @@ import org.apache.commons.io.IOUtils;
 //@WebServlet("/demo12")
 public class TestServletContext extends HttpServlet {
     ServletContext application;
-    AtomicInteger atomicInteger;
     @Override
     public void init() throws ServletException {
         application = getServletContext();
-        atomicInteger = new AtomicInteger();
-        atomicInteger.set(0);
+        AtomicInteger atomicInteger = new AtomicInteger(0);
+        application.setAttribute("count",atomicInteger);
+
     }
 
     @Override
@@ -47,8 +47,7 @@ public class TestServletContext extends HttpServlet {
         System.out.println("realPath:" + realPath);*/
 
 
-        application.setAttribute("count",atomicInteger);
-
+        AtomicInteger atomicInteger = (AtomicInteger)application.getAttribute("count");
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         resp.setContentType("text/html; charset=UTF-8");
