@@ -28,7 +28,10 @@ public class TestServletContext extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        resp.setContentType("text/html; charset=UTF-8");
+
+        //getServletContext 获取上下文域
+
+        //        resp.setContentType("text/html; charset=UTF-8");
 //        ServletContext servletContext = getServletContext();
 //        String user = (String)servletContext.getInitParameter("user");
 //        String child = (String)servletContext.getInitParameter("child");

@@ -2,27 +2,26 @@ package com.jw.servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/demo10")
-public class TestRedirect extends HttpServlet {
+@WebServlet("/cookie1")
+public class TestCookie1 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        /*重定向
-        1. 地址栏变化了，显示的是新的地址
-        2. 请求次数有2次
-        3. 请求域中的数据丢失了，因为是2次请求
-         */
-        req.setCharacterEncoding("utf-8");
-        req.setAttribute("username","孙悟空");
-        String contextPath = req.getContextPath();
-        System.out.println("contentPath:"+ contextPath);
-        resp.sendRedirect(contextPath + "/two");
+        PrintWriter writer = resp.getWriter();
+        Cookie[] cookies = req.getCookies();
+        for (Cookie c :
+                cookies) {
+            String name = c.getName();
+            String value = c.getValue();
+            writer.println(name+ ":"+value);
+            writer.println("==进入cookie1");
+        }
     }
 
     @Override

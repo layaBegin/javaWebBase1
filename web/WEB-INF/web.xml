@@ -32,7 +32,7 @@
 
 <!-- 修改默认打开页(Tomcat 默认打开index.html 或者index.jsp);-->
    <welcome-file-list>
-      <welcome-file>download.html</welcome-file>
+      <welcome-file>book.html</welcome-file>
    </welcome-file-list>
 
 
